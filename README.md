@@ -31,16 +31,8 @@
 ## 설치·사용
 
 ```
-# 이 저장소 단독 설치
 /plugin marketplace add parkjui92-tech/socsci-paper-kit
 /plugin install socsci-paper-kit@socsci-paper-kit
-```
-
-3킷(정책연구·R&D 제안서·논문)을 한 번에 쓰려면 통합 허브를 등록해도 된다:
-
-```
-/plugin marketplace add parkjui92-tech/policy-research-kits
-/plugin install socsci-paper-kit@policy-research-kits
 ```
 
 한국어 학술 교정교열을 온전히 쓰려면 동반 스킬 설치를 권장:
@@ -59,7 +51,7 @@
 
 ## 시리즈
 
-통합 허브(3킷 + 검증 스킬 시리즈 안내): **[policy-research-kits](https://github.com/parkjui92-tech/policy-research-kits)** · 단독 검증 스킬: [fact-verify](https://github.com/parkjui92-tech/fact-verify) · [paper-proofread](https://github.com/parkjui92-tech/paper-proofread) · [form-tailor](https://github.com/parkjui92-tech/form-tailor) · [report-to-brief](https://github.com/parkjui92-tech/report-to-brief)
+다른 킷: [policy-research-kit](https://github.com/parkjui92-tech/policy-research-kit) · [rnd-proposal-kit](https://github.com/parkjui92-tech/rnd-proposal-kit) · 단독 검증 스킬: [fact-verify](https://github.com/parkjui92-tech/fact-verify) · [paper-proofread](https://github.com/parkjui92-tech/paper-proofread) · [form-tailor](https://github.com/parkjui92-tech/form-tailor) · [report-to-brief](https://github.com/parkjui92-tech/report-to-brief)
 
 ## 라이선스
 
