@@ -6,37 +6,43 @@
 
 [한국어](README.md) · **English**
 
-A [Claude Code](https://claude.com/claude-code) plugin: a **six-agent team** that takes a social science paper from research design — research questions, hypotheses, variables, operational definitions, theoretical framework — to a submission-ready `.docx`.
-What it protects is not prose. It's **citations and design** — whether every in-text citation actually exists in the reference list, and whether analyzing that data with that hypothesis makes sense in the first place.
+A [Claude Code](https://claude.com/claude-code) plugin that writes a social science paper for you, start to finish.
 
-<!-- demo GIF goes here -->
+Give it a topic and it works out the research question and hypotheses, finds the prior literature, writes the body, and produces a submission-ready Word file (`.docx`) plus Markdown. Six AIs split the work, and one of them **only reviews** — so the AI that wrote the text can never sign off on its own work. That's the whole idea.
 
-## Why gates
+## What makes it different
 
-Citation defects are not catchable by *reading*. They are catchable by **cross-checking**: matching every in-text citation against the list, then walking the list backwards and finding each entry in the body. It is the single most tedious job in manuscript preparation, which is exactly why it doesn't get done at 2 a.m. before a deadline.
+What this plugin guards is not the prose. It's the **citations** — and citation problems aren't the kind you catch by reading. You catch them by **cross-checking**: matching each in-text citation against the reference list, then walking the list backwards and finding every entry in the body. Two things fall out:
 
-| | Vanilla session | This kit |
+- **Citations to papers that don't exist** — a plausible author and year are attached, so reading right past them is easy
+- **References in the list that appear nowhere in the body** — leftovers from a paragraph that got cut
+
+It's the most tedious job in finishing a manuscript, which is exactly why it doesn't get done the night before a deadline. This plugin just does it, mechanically.
+
+| | Plain Claude Code | This plugin |
 |---|---|---|
-| Citation checking | Draft ships with citations attached, and that's it | **Exhaustive 1:1 cross-check** of body ↔ reference list (appendices included) · existence and figures verified |
-| Who reviews | The session that wrote it reads its own work | A **different agent**, **read-only**, re-reading the manuscript from disk |
-| What remains | One manuscript file | Design, gate rulings, evidence ledger, review findings **persist as files** |
+| Does it cross-check citations? | Ships with citations attached, and that's it | Matches body against reference list **one by one** (appendices included) |
+| Who reviews it? | The AI that wrote it reads its own work | **A different AI** re-reads the files and checks |
+| Does the work leave a trail? | One manuscript file | Design, review findings, source list, and revision log stay as files |
 
-If rulings don't persist as files, there is no way to later ask "was this citation actually verified?" That said, the table describes structure, not measurement — there is no measured A/B against vanilla for this kit.
+One thing I'll be straight about: **that table describes how it's built, not something I measured.** I haven't yet run this kit side by side against plain Claude Code. A sister kit built the same way does have that measurement, so take a look there.
 
-→ [Why I built this + detailed usage](docs/why.md) · [A sister kit's measured A/B audit](https://github.com/parkjui92/policy-research-kit/blob/main/docs/vanilla-vs-kit.md)
+→ [Why I built this, and fuller usage notes](docs/why.md) · [A sister kit's side-by-side test](https://github.com/parkjui92/policy-research-kit/blob/main/docs/vanilla-vs-kit.md)
 
-## Pipeline
+## How it runs
 
 ```
-Design → 🚦Gate 1 (design review) → ★You approve outline + hypotheses
-       → Literature ∥ Analysis → Drafting → 🚦Gate 2 (5 axes) → copy-edit → docx
+Design → 🚦Check 1 → ★You confirm the outline and hypotheses
+       → Literature review + data analysis (at the same time) → Writing → 🚦Check 2 → Copy-edit → Word file
 ```
 
-Gate 1 protects *direction* (untestable hypotheses and unanswerable RQs are cleared out before anyone spends effort); gate 2 protects against *overconfidence*. The reviewer is **a different agent** from the writer and is read-only, so nobody signs off on their own work.
+It **stops twice.** The first stop looks at direction before any writing happens: hypotheses nothing could confirm, research questions nothing could answer, concepts that are named but never pinned down to something you can actually count or measure. Leave those in and finish the paper, and there's no cheap way back.
 
-**The five axes** — ① RQ and hypothesis fulfillment ② evidence and source integrity ③ logical coherence ④ methodological validity ⑤ Korean-language copy-editing. Axis 2 is the center of gravity. Quantitative work (bibliometric, panel, DiD, null results) drops into the five axes of `scientometric-paper-review`: measurement integrity, identification strategy, inferential language, citation fidelity, construct validity.
+The second stop reviews the finished draft, because polished writing is hard to doubt on your own. It's done by **a different AI that didn't write anything**, and that AI **can read but not edit** — with no power to change the text, it has no way to quietly smooth a problem over.
 
-Caught in practice: 2 ghost citations · 1 orphan reference not present in the body.
+The review asks five things: ① did it actually answer the research question and hypotheses ② are the citations and sources real ③ does the argument hold together ④ is the method sound ⑤ does the Korean read well. Number ② is the center of gravity. Papers built on numbers (statistical work, citation-data studies) get a stricter version that asks what exactly was measured and how, whether there's real ground for a causal claim, and whether the write-up overstates what the results show.
+
+Caught in practice: 2 citations to papers that don't exist, 1 reference listed but never used in the body.
 
 ## Install
 
@@ -45,41 +51,45 @@ Caught in practice: 2 ghost citations · 1 orphan reference not present in the b
 /plugin install socsci-paper-kit@socsci-paper-kit
 ```
 
-For full Korean academic copy-editing, installing the companion skill [paper-proofread](https://github.com/parkjui92/paper-proofread) is recommended (without it, that work falls back to the reviewer's copy-editing axis).
+For proper Korean copy-editing, install [paper-proofread](https://github.com/parkjui92/paper-proofread) alongside it. Without it, the fifth review question above covers that work instead.
 
-## Usage
+## Using it
+
+Just ask in plain language.
 
 ```
-Start a paper on platform workers' social insurance. Data attached.   ← you have data
-No data. This will be a theoretical paper from a literature review.   ← analyst dropped
-Review this draft. Start with the citations.                          ← revision mode
-Redesign the hypotheses as a moderation model                         ← at the approval gate
+Write a paper on platform workers' social insurance. Survey data attached.  ← you have data
+No data — a theoretical paper from a literature review.                     ← analyst drops out
+Review this draft. Start with the citations.                                ← fixing an existing one
+Redesign the hypotheses as a moderation model                               ← at the confirm step
 ```
 
-It pauses twice (outline and hypothesis approval after gate 1, revision confirmation after gate 2), so you can step away in between.
+That last one matters: when it shows you the outline and hypotheses, asking for changes rebuilds them right there. **It's the cheapest moment to change direction.** And you can step away while it's paused.
 
-## What you get
+## What you end up with
 
-Not one manuscript but **an auditable record set** — design, gate 1 ruling, evidence ledger, data analysis, draft, gate 2 review, final `.docx`. Which means that six months later, when a reviewer asks where a citation came from, you can answer. Don't delete `_workspace/` — partial re-runs work off these files.
+Not just a finished paper — **the whole process stays on disk as files.**
 
-Worked example: [a complete theoretical/literature run](examples/socsci-paper-demo/) · [reading order and what to look for](examples/README.md)
+The research design, what the first check flagged and why, a list of which fact came from which source, the data analysis, the draft, what the second check found and what was actually changed, and the final Word file.
 
-## Requirements & limits
+Which means that months later, when a reviewer asks where a citation came from, you can answer. Don't delete the `_workspace/` folder — re-running just one part works off these files.
 
-- `.docx` conversion uses the `docx` skill; if it fails you get the Markdown manuscript first plus manual conversion instructions
-- **Gates reduce errors; they don't eliminate them.** The reviewer runs on a model from the same family as the writer and can share its blind spots
-- **Subscription and paywalled databases** (DBpia, Scopus, Web of Science) can only be verified if *you* have access. A citation that couldn't be checked is not quietly deleted — it stays marked "needs verification"
-- Tuned to Korean academic conventions (Korean copy-editing; KCI, RISS, DBpia as search sources). For an English-language journal, adapt axis 5 and the search-source list — **everything else, including the design gate and the citation-integrity protocol, is language-independent**
-- [Fallbacks, dependencies, keys](docs/runtime-notes.md) · [Gate design methodology and the catch log](docs/verification-gates.md)
+## Good to know
 
-## Series
+- If the Word conversion fails, you get the Markdown manuscript first, plus instructions for converting it yourself.
+- **The checks reduce errors but don't eliminate them.** The reviewing AI comes from the same model family and can share the same blind spots. A person still needs to look.
+- **Paywalled academic databases** (DBpia, Scopus, Web of Science) can only be checked if *you* have access. A citation that couldn't be confirmed isn't quietly deleted — it stays marked "needs verification."
+- It's shaped around Korean academic practice: the copy-editing works on Korean prose, and the searching covers KCI, RISS, and DBpia because that's where the domestic literature lives. For an English-language journal you'd swap those two out, and **everything else works the same regardless of language.**
+- [If setup gives you trouble](docs/runtime-notes.md) · [Building this kind of review structure yourself](docs/verification-gates.md)
 
-**Agent-team kits** — [policy-research-kit](https://github.com/parkjui92/policy-research-kit) (policy research reports) · [rnd-proposal-kit](https://github.com/parkjui92/rnd-proposal-kit) (Korean government R&D proposals)
+## Related work
 
-**Authoring kit** — [lecture-deck-kit](https://github.com/parkjui92/lecture-deck-kit) (HTML lecture decks with in-browser live editing)
+**Plugins that write reports and proposals** — [policy-research-kit](https://github.com/parkjui92/policy-research-kit) (policy research reports) · [rnd-proposal-kit](https://github.com/parkjui92/rnd-proposal-kit) (Korean government R&D proposals)
 
-**Standalone skills** — [fact-verify](https://github.com/parkjui92/fact-verify) (source verification) · [paper-proofread](https://github.com/parkjui92/paper-proofread) (Korean academic proofreading) · [form-tailor](https://github.com/parkjui92/form-tailor) (institutional document formats) · [report-to-brief](https://github.com/parkjui92/report-to-brief) (report compression)
+**Plugins that build and edit** — [lecture-deck-kit](https://github.com/parkjui92/lecture-deck-kit) (HTML lecture slides you edit right in the browser)
+
+**Single-purpose tools** — [fact-verify](https://github.com/parkjui92/fact-verify) (check whether sources are real) · [paper-proofread](https://github.com/parkjui92/paper-proofread) (Korean academic proofreading) · [form-tailor](https://github.com/parkjui92/form-tailor) (match an organization's document format) · [report-to-brief](https://github.com/parkjui92/report-to-brief) (shorten long reports)
 
 ## License
 
-[MIT](LICENSE). No proprietary institutional templates and no real client deliverables are included (bring-your-own-template principle).
+[MIT](LICENSE). Contains no organization-specific templates and no real client deliverables.
