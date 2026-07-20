@@ -4,10 +4,10 @@
   "version": "0.9.0",
   "author": {
     "name": "Jui Park",
-    "url": "https://github.com/parkjui92-tech"
+    "url": "https://github.com/parkjui92"
   },
-  "homepage": "https://github.com/parkjui92-tech/socsci-paper-kit",
-  "repository": "https://github.com/parkjui92-tech/socsci-paper-kit",
+  "homepage": "https://github.com/parkjui92/socsci-paper-kit",
+  "repository": "https://github.com/parkjui92/socsci-paper-kit",
   "license": "Apache-2.0",
   "keywords": [
     "academic-writing",

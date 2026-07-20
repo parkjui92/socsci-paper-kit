@@ -31,12 +31,12 @@
 ## 설치·사용
 
 ```
-/plugin marketplace add parkjui92-tech/socsci-paper-kit
+/plugin marketplace add parkjui92/socsci-paper-kit
 /plugin install socsci-paper-kit@socsci-paper-kit
 ```
 
 한국어 학술 교정교열을 온전히 쓰려면 동반 스킬 설치를 권장:
-[parkjui92-tech/paper-proofread](https://github.com/parkjui92-tech/paper-proofread) (미설치 시 검수관의 교열 축으로 대체).
+[parkjui92/paper-proofread](https://github.com/parkjui92/paper-proofread) (미설치 시 검수관의 교열 축으로 대체).
 
 ```
 "플랫폼 노동자의 사회보험 사각지대에 대한 실증연구 논문을 설계부터 시작해줘. 설문 데이터 첨부."
@@ -51,7 +51,7 @@
 
 ## 시리즈
 
-다른 킷: [policy-research-kit](https://github.com/parkjui92-tech/policy-research-kit) · [rnd-proposal-kit](https://github.com/parkjui92-tech/rnd-proposal-kit) · 단독 검증 스킬: [fact-verify](https://github.com/parkjui92-tech/fact-verify) · [paper-proofread](https://github.com/parkjui92-tech/paper-proofread) · [form-tailor](https://github.com/parkjui92-tech/form-tailor) · [report-to-brief](https://github.com/parkjui92-tech/report-to-brief)
+다른 킷: [policy-research-kit](https://github.com/parkjui92/policy-research-kit) · [rnd-proposal-kit](https://github.com/parkjui92/rnd-proposal-kit) · 단독 검증 스킬: [fact-verify](https://github.com/parkjui92/fact-verify) · [paper-proofread](https://github.com/parkjui92/paper-proofread) · [form-tailor](https://github.com/parkjui92/form-tailor) · [report-to-brief](https://github.com/parkjui92/report-to-brief)
 
 ## 라이선스
 
