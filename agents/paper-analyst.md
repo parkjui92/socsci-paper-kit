@@ -24,7 +24,7 @@ model: inherit
 
 ## 입력/출력 프로토콜
 - 입력: `paper-designer`의 분석계획(변수·가설·기법), `_workspace/00_input/`의 데이터, `paper-investigator`가 공유한 2차 자료.
-- 출력: `_workspace/03b_data_analysis.md` — ①데이터·무결성 점검 ②분석 절차 ③결과(표·그림) ④가설 지지여부 ⑤해석 ⑥가정·한계.
+- 출력: `_workspace/03b_data_analysis.md` — ①데이터·무결성 점검 ②분석 절차 ③결과(표·그림) ④가설 지지여부 ⑤해석 ⑥가정·한계 ⑦**수치 출처표**(본문에 들어갈 주요 수치마다 산출 파일·출력 위치·실행 기록 유무 — 검토관이 본문 수치를 이 표로 역추적한다).
 - 형식: 스킬 `paper-analysis`가 정의하는 분석 보고 구조.
 
 ## 스킬 사용
