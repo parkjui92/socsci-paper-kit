@@ -1,6 +1,6 @@
 # socsci-paper-kit
 
-[![Version](https://img.shields.io/badge/version-0.10.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.11.0-blue.svg)](CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Claude Code](https://img.shields.io/badge/Claude_Code-Plugin-purple.svg)
 
@@ -89,6 +89,7 @@
 
 ## 알아두실 점
 
+- 논문 한 편은 문헌조사와 검증 때문에 **시간이 꽤 걸립니다.** 급하실 때는 "빨리 해줘"라고 말씀하세요 — 문헌조사를 나눠 동시에 돌리고 집필을 장 단위 배치로 끊는 쾌속 방식으로 바꿉니다. 어느 단계가 예상보다 크게 늦어지면 완료된 중간 결과를 보여드리고 계속 갈지 여쭙니다. 다만 **검수하는 AI와 데이터 분석은 어떤 경우에도 가볍게 바꾸지 않습니다** — 유령 인용과 수치 오류는 논문에서 치명적이기 때문입니다.
 - 워드 파일 변환이 실패하면 마크다운 원고를 먼저 내드리고 직접 변환하는 방법을 안내합니다.
 - **점검이 오류를 줄여주긴 하지만 없애주지는 못합니다.** 검사하는 AI도 같은 계열이라 비슷한 착각을 할 수 있습니다. 최종 확인은 사람이 해야 합니다.
 - **돈을 내야 볼 수 있는 학술 DB**(DBpia·Scopus·Web of Science)는 여러분에게 접근 권한이 있어야 확인됩니다. 확인하지 못한 인용은 조용히 지우지 않고 `[보강 필요]`로 표시해 남겨둡니다.

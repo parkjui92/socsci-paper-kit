@@ -1,6 +1,6 @@
 # socsci-paper-kit
 
-[![Version](https://img.shields.io/badge/version-0.10.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.11.0-blue.svg)](CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Claude Code](https://img.shields.io/badge/Claude_Code-Plugin-purple.svg)
 
@@ -90,6 +90,7 @@ Which means that months later, when a reviewer asks where a citation came from, 
 
 ## Good to know
 
+- A full paper **takes a while**, mostly literature search and verification. If you're in a hurry, say "do it fast" — it splits the literature search into parallel runs and writes chapters in batches. If a stage runs well past its expected time, it shows you the finished intermediate results and asks whether to continue. **The reviewing AI and the data analysis are never downgraded**, whatever the speed setting — ghost citations and wrong numbers are fatal in a paper.
 - If the Word conversion fails, you get the Markdown manuscript first, plus instructions for converting it yourself.
 - **The checks reduce errors but don't eliminate them.** The reviewing AI comes from the same model family and can share the same blind spots. A person still needs to look.
 - **Paywalled academic databases** (DBpia, Scopus, Web of Science) can only be checked if *you* have access. A citation that couldn't be confirmed isn't quietly deleted — it stays marked "needs verification."
