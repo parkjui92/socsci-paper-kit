@@ -1,6 +1,6 @@
 # socsci-paper-kit
 
-[![Version](https://img.shields.io/badge/version-0.9.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.10.0-blue.svg)](CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Claude Code](https://img.shields.io/badge/Claude_Code-Plugin-purple.svg)
 
@@ -44,6 +44,18 @@ The review asks five things: ① did it actually answer the research question an
 
 Caught in practice: 2 citations to papers that don't exist, 1 reference listed but never used in the body.
 
+It also checks whether **the cited paper actually says what the sentence claims**. The writing AI tags each citation with an invisible note pointing to the page or passage in the source; the reviewing AI opens that spot and compares. The notes are stripped from the final Word file.
+
+## After peer review
+
+When reviewer comments come back from a journal, the plugin handles that stage too. Three things usually go wrong in a revise-and-resubmit:
+
+- **Gaps** — one comment contains two or three requests and only one gets answered
+- **Paper promises** — the response letter says "revised" but the manuscript didn't change
+- **Spillover** — fixing one spot rewrites untouched sections and creates new problems
+
+So the comments are split into individual requests, and **you decide** for each one whether to revise, partially revise, or rebut. The AI edits only the spots you approved, and a script diffs the before/after manuscripts to catch edits outside that list. The response letter is written only from changes that actually appear in the diff. Finally, a fresh reviewer that took no part in the revision simulates re-review **without seeing the response letter first**, judging the manuscript changes on their own.
+
 ## Install
 
 ```
@@ -62,9 +74,11 @@ Write a paper on platform workers' social insurance. Survey data attached.  ← 
 No data — a theoretical paper from a literature review.                     ← analyst drops out
 Review this draft. Start with the citations.                                ← fixing an existing one
 Redesign the hypotheses as a moderation model                               ← at the confirm step
+Reviewer comments are in. Sort them, revise, and draft the response letter. ← after peer review
+Check my response letter for anything I missed.                             ← response letter only
 ```
 
-That last one matters: when it shows you the outline and hypotheses, asking for changes rebuilds them right there. **It's the cheapest moment to change direction.** And you can step away while it's paused.
+The fourth one matters: when it shows you the outline and hypotheses, asking for changes rebuilds them right there. **It's the cheapest moment to change direction.** And you can step away while it's paused.
 
 ## What you end up with
 
@@ -89,6 +103,10 @@ Which means that months later, when a reviewer asks where a citation came from, 
 **Plugins that build and edit** — [lecture-deck-kit](https://github.com/parkjui92/lecture-deck-kit) (HTML lecture slides you edit right in the browser)
 
 **Single-purpose tools** — [fact-verify](https://github.com/parkjui92/fact-verify) (check whether sources are real) · [paper-proofread](https://github.com/parkjui92/paper-proofread) (Korean academic proofreading) · [form-tailor](https://github.com/parkjui92/form-tailor) (match an organization's document format) · [report-to-brief](https://github.com/parkjui92/report-to-brief) (shorten long reports)
+
+## Credits
+
+The peer-review response stage, citation-location checks, and re-review discipline were inspired by the design of [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) (Imbad0202, CC BY-NC 4.0) and rewritten from scratch for Korean journal practice. No text or code was copied.
 
 ## License
 

@@ -1,7 +1,7 @@
 {
   "name": "socsci-paper-kit",
-  "description": "사회과학 학술논문을 쓰는 에이전트 팀. 연구설계(RQ·가설·변수·조작적 정의·이론틀) → 설계검토 게이트 → 근거조사∥데이터분석(조건부) → 학술 문체 집필(APA7) → 5축 검수(유령인용·환각출처 적발) → Word .docx + Markdown 산출. 계량서지·정량 논문용 심화 검수(scientometric review) 포함. A six-agent social-science paper team with hypothesis design, five-axis review, and DOCX output.",
-  "version": "0.9.0",
+  "description": "사회과학 학술논문을 쓰는 에이전트 팀. 연구설계(RQ·가설·변수·조작적 정의·이론틀) → 설계검토 게이트 → 근거조사∥데이터분석(조건부) → 주장 선언·인용 위치 표기 집필(APA7) → 5축 검수(유령인용·환각출처·주장-출처 정합) → Word .docx + Markdown 산출. 학술지 심사 이후 의견 원장·수정·답변서·재심사 시뮬레이션(paper-revision)과 계량 논문 심화 검수 포함. A six-agent social-science paper team with hypothesis design, claim-source alignment review, peer-review response (R&R) support, and DOCX output.",
+  "version": "0.10.0",
   "author": {
     "name": "Jui Park",
     "url": "https://github.com/parkjui92"
@@ -18,6 +18,8 @@
     "agent-team",
     "korean",
     "claude-code-plugin",
-    "scientometrics"
+    "scientometrics",
+    "peer-review",
+    "revise-and-resubmit"
   ]
 }
